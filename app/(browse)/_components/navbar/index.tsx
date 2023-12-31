@@ -1,4 +1,4 @@
-import { Logo } from "@/app/(browse)/_components/sidebar/logo"
+import { Logo } from "@/app/(browse)/_components/navbar/logo"
 import { Search } from "./search"
 import { Actions } from "./actions"
 

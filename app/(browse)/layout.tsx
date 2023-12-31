@@ -1,4 +1,4 @@
-import { Navbar } from "./_components/sidebar";
+import { Navbar } from "./_components/navbar";
 
 const BrowseLayout = ({
     children,
