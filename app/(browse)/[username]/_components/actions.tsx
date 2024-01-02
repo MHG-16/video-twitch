@@ -23,7 +23,7 @@ export const Actions = ({isFollowing, userId} : ActionsProps) => {
     const handleUnfollow = () => {
         startTransition(() => {
             onUnfollow(userId)
-            .then((data) => toast.success(`You're now unfollowing` + data.following.username))
+            .then((data) => toast.success(`You're now unfollowing ` + data.following.username))
             .catch(() => toast.error("Something went wrong"))
         })
     }
