@@ -21,7 +21,7 @@ export const Navigation = () => {
         },
         {
             label: "Keys",
-            href: `u/${user?.username}/keys`,
+            href: `/u/${user?.username}/keys`,
             icon: KeyRound
         },
         {
