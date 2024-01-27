@@ -4,7 +4,6 @@ import { LiveKitRoom } from "@livekit/components-react";
 import { useViewerToken } from "@/hooks/use-viewer-token";
 
 import { cn } from "@/lib/utils";
-import { Stream, User } from "@prisma/client";
 import { Video, VideoSkeleton } from "./video";
 import { useChatSidebar } from "@/store/use-chat-sidebar";
 import { Chat, ChatSkeleton } from "./chat";
@@ -13,13 +12,29 @@ import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
 import { AboutCard } from "./about-card";
 
+type CustomStream = {
+  id: string;
+  isChatEnabled: boolean;
+  isChatDelayed: boolean;
+  isChatFollowerOnly: boolean;
+  isLive: boolean;
+  thumbnailUrl: string | null;
+  name: string;
+}
+
+type CustomUser = {
+  id: string;
+  username: string;
+  bio: string | null;
+  stream: CustomStream | null;
+  imageUrl: string; 
+  _count: { followedBy: number }
+}
+
 interface StreamPlayerProps {
-    user: User & { 
-      stream: Stream | null,
-      _count: { followedBy: number }
-    };
-    stream: Stream;
-    isFollowing: boolean;
+  user: CustomUser;
+  stream: CustomStream;
+  isFollowing: boolean;
 }
 
 export const StreamPlayer = ({
