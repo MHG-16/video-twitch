@@ -8,7 +8,7 @@ import { Tracing } from "trace_events";
 
 interface ResultProps {
     data: {
-        id: Tracing;
+        id: string;
         name: string;
         thumbnailUrl: string | null;
         isLive: boolean;
