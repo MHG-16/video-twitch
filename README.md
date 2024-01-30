@@ -2,7 +2,7 @@
 
 ![Twitch Clone Thumbnail (3)](https://github.com/AntonioErdeljac/next14-twitch-clone/assets/23248726/6e0153f1-ab30-4924-9f06-13d2f46ff3b5)
 
-
+[VIDEO TUTORIAL](https://www.youtube.com/watch?v=a02JAryRPVU)
 
 This is a repository for Fullstack Trello Clone: Next.js 14, Livestreaming, React, Prisma, Stripe, Tailwind, MySQL
 
