@@ -15,8 +15,6 @@ export const ChatMessage = ({
 }: ChatMessageProps) => {
     const color = stringToColor(data.from?.name || "");
 
-    console.log(color)
-
     return (
         <div className="flex gap-2 p-2 rounded-md hover:bg-white/5">
             <p className="text-sm text-white/40">

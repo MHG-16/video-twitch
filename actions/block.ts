@@ -15,6 +15,7 @@ export const onBlock = async (id: string) => {
     const self = await getSelf();
     try {
         const blockedUser = await blockUser(id);
+        return blockedUser;
     } catch (error) {
         //This means user is a guest
         console.log(error)
@@ -28,15 +29,16 @@ export const onBlock = async (id: string) => {
 
     revalidatePath(`/u/${self.username}/community`);
 
-    return blockUser;
 }
 
 export const onUnblock = async (id: string) => {
     try {
+        const self = await getSelf();
         const unblockedUser = await unblockUser(id);
 
         if(unblockedUser) {
             revalidatePath(`/${unblockedUser.blocked.username}`);
+            revalidatePath(`/u/${self.username}/community`);
         };
 
         return unblockedUser;

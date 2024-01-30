@@ -14,6 +14,7 @@ interface HeaderProps {
   viewerIdentity: string;
   isFollowing: boolean;
   name: string;
+  isBlocking: boolean;
 }
 
 export const Header = ({
@@ -22,7 +23,8 @@ export const Header = ({
   hostIdentity,
   viewerIdentity,
   isFollowing,
-  name
+  name,
+  isBlocking
 }: HeaderProps) => {
   const participants = useParticipants();
   const participant = useRemoteParticipant(hostIdentity);
@@ -71,6 +73,7 @@ export const Header = ({
         isFollowing={isFollowing}
         hostIdentity={hostIdentity}
         isHost={isHost}
+        isBlocking={isBlocking}
       />
     </div>
   )

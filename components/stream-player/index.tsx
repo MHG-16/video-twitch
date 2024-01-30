@@ -11,6 +11,7 @@ import { ChatToggle } from "./chat-toggle";
 import { Header, HeaderSkeleton } from "./header";
 import { InfoCard } from "./info-card";
 import { AboutCard } from "./about-card";
+import { isBlockedByUser } from "@/lib/block-service";
 
 type CustomStream = {
   id: string;
@@ -35,12 +36,14 @@ interface StreamPlayerProps {
   user: CustomUser;
   stream: CustomStream;
   isFollowing: boolean;
+  isBlocking: boolean;
 }
 
 export const StreamPlayer = ({
     user,
     stream,
-    isFollowing
+    isFollowing,
+    isBlocking
 }: StreamPlayerProps) => {
   const {
     token,
@@ -48,8 +51,6 @@ export const StreamPlayer = ({
     identity
   } = useViewerToken(user.id);
   const { collapsed } = useChatSidebar((state) => state);
-
-  console.log({token, name, identity})
 
   if(!token || !name || !identity) {
     return <StreamPlayerSkeleton />
@@ -86,6 +87,7 @@ export const StreamPlayer = ({
             imageUrl={user.imageUrl}
             isFollowing={isFollowing}
             name={stream.name}
+            isBlocking={isBlocking}
           />
           <InfoCard 
             hostIdentity={user.id}
